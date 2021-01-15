@@ -10,14 +10,20 @@ import pydeck as pdk
 df = pd.read_csv("parler.csv")
 
 #PREPPING THE DATA
-data = pd.read_csv("parler.csv")
-lowercase = lambda x: str(x).lower()
-data.drop("Unnamed: 0", axis=1, inplace=True)
-data.columns = ["lat", "lon", "time", "id"]
-data.rename(lowercase, axis="columns", inplace=True)
-data["time"] = pd.to_datetime(data["time"])
-data["time"] = data["time"].apply(lambda x: x.tz_localize('UTC').tz_convert('EST'))
-data = data[data['time'].dt.date.astype(str) == '2021-01-06'] 
+
+@st.cache(persist=True)
+def data_load(): 
+    data = pd.read_csv("parler.csv")
+    lowercase = lambda x: str(x).lower()
+    data.drop("Unnamed: 0", axis=1, inplace=True)
+    data.columns = ["lat", "lon", "time", "id"]
+    data.rename(lowercase, axis="columns", inplace=True)
+    data["time"] = pd.to_datetime(data["time"])
+    data["time"] = data["time"].apply(lambda x: x.tz_localize('UTC').tz_convert('EST'))
+    data = data[data['time'].dt.date.astype(str) == '2021-01-06'] 
+    return data
+
+data = data_load()
 
 def local_css(file_name):
     with open(file_name) as f:
