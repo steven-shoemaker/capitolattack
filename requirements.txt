@@ -1,8 +1,8 @@
-pandas==0.24.2
-numpy==1.16.3
-altair==4.1.0
-plotly==4.14.3
-protobuf==3.14.0
-pydeck==0.5.0
-pyOpenSSL==20.0.1
-streamlit==0.74.1
+pandas
+numpy
+altair
+plotly
+protobuf
+pydeck
+pyOpenSSL
+streamlit
