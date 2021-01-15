@@ -1,0 +1,17 @@
+pandas==0.24.2
+numpy==1.16.3
+pywin32==227
+altair==4.1.0
+brotli==1.0.9
+cryptography==3.3.1
+Cython==0.29.21
+ipaddr==2.2.0
+keyring==21.8.0
+lxml==4.6.2
+ordereddict==1.1
+plotly==4.14.3
+protobuf==3.14.0
+pydeck==0.5.0
+pyOpenSSL==20.0.1
+streamlit==0.74.1
+wincertstore==0.2
